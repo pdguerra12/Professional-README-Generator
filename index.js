@@ -3,17 +3,6 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateReadME = require("./utils/generateMarkdown.js");
 
-// TODO: Create an array of questions for user input
-const questions = [
-	"What is the title of your project?",
-	"Please provide a description of your project.",
-	"Please provide installation instructions.",
-	"Please provide the usage information.",
-	"Please provide contribution guidelines.",
-	"Please provide test instructions.",
-	"Which license ",
-];
-
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
@@ -48,7 +37,7 @@ function init() {
 		},
 		{
 			type: "input",
-			name: "installation",
+			name: "installation instructions",
 			message: "Provide installation instructions (Required)",
 			validate: (nameInput) => {
 				if (nameInput) {
@@ -61,7 +50,7 @@ function init() {
 		},
 		{
 			type: "input",
-			name: "usage",
+			name: "usage info",
 			message: "Provide the usage information (Required)",
 			validate: (nameInput) => {
 				if (nameInput) {
@@ -74,7 +63,7 @@ function init() {
 		},
 		{
 			type: "input",
-			name: "description",
+			name: "contribution guidelines",
 			message: "Provide contribution guidelines (Required)",
 			validate: (nameInput) => {
 				if (nameInput) {
@@ -86,17 +75,31 @@ function init() {
 			},
 		},
 		{
+			type: "input",
+			name: "test instructions",
+			message: "Provide test instructions (Required)",
+			validate: (nameInput) => {
+				if (nameInput) {
+					return true;
+				} else {
+					console.log("Please provide test instructions!");
+					return false;
+				}
+			},
+		},
+		{
 			type: "checkbox",
 			name: "languages",
-			message: "What did you build this project with? (Check all that apply)",
+			message: "Which license(s) will you be using? (Check all that apply)",
 			choices: [
-				"JavaScript",
-				"HTML",
-				"CSS",
-				"ES6",
-				"jQuery",
-				"Bootstrap",
-				"Node",
+				"Apache License 2.0",
+				"Boost Software License 1.0",
+				"GNU AGPLv3",
+				"GNU GPLv3",
+				"GNU LGPLv3",
+				"MIT License",
+				"Mozilla Public License 2.0",
+				"The Unlicense",
 			],
 		},
 		{
@@ -114,20 +117,29 @@ function init() {
 		},
 		{
 			type: "input",
-			name: "link",
-			message: "Enter the GitHub link to your project. (Required)",
+			name: "github",
+			message: "Enter your GitHub Username (Required)",
+			validate: (nameInput) => {
+				if (nameInput) {
+					return true;
+				} else {
+					console.log("Please enter your Github Username!");
+					return false;
+				}
+			},
 		},
 		{
-			type: "confirm",
-			name: "feature",
-			message: "Would you like to feature this project?",
-			default: false,
-		},
-		{
-			type: "confirm",
-			name: "confirmAddProject",
-			message: "Would you like to enter another project?",
-			default: false,
+			type: "input",
+			name: "email",
+			message: "What is your email address? (Required)",
+			validate: (nameInput) => {
+				if (nameInput) {
+					return true;
+				} else {
+					console.log("Invalid Entry!");
+					return false;
+				}
+			},
 		},
 	]);
 }
