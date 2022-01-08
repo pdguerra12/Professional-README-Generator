@@ -9,7 +9,7 @@ function init() {
 		.prompt([
 			{
 				type: "input",
-				name: "name",
+				name: "title",
 				message: "What is the name of your project? (Required)",
 				validate: (nameInput) => {
 					if (nameInput) {
@@ -35,7 +35,7 @@ function init() {
 			},
 			{
 				type: "input",
-				name: "installation instructions",
+				name: "installation",
 				message: "Provide installation instructions (Required)",
 				validate: (nameInput) => {
 					if (nameInput) {
@@ -48,7 +48,7 @@ function init() {
 			},
 			{
 				type: "input",
-				name: "usage info",
+				name: "usage",
 				message: "Provide the usage information (Required)",
 				validate: (nameInput) => {
 					if (nameInput) {
@@ -61,7 +61,7 @@ function init() {
 			},
 			{
 				type: "input",
-				name: "contribution guidelines",
+				name: "contributing",
 				message: "Provide contribution guidelines (Required)",
 				validate: (nameInput) => {
 					if (nameInput) {
@@ -74,7 +74,7 @@ function init() {
 			},
 			{
 				type: "input",
-				name: "test instructions",
+				name: "tests",
 				message: "Provide test instructions (Required)",
 				validate: (nameInput) => {
 					if (nameInput) {
@@ -87,8 +87,8 @@ function init() {
 			},
 			{
 				type: "checkbox",
-				name: "languages",
-				message: "Which license(s) will you be using? (Check all that apply)",
+				name: "license",
+				message: "Which license will you be using? (Check all that apply)",
 				default: "MIT License",
 				choices: [
 					"Apache License 2.0",
@@ -103,20 +103,7 @@ function init() {
 			},
 			{
 				type: "input",
-				name: "link",
-				message: "Enter the GitHub link to your project. (Required)",
-				validate: (nameInput) => {
-					if (nameInput) {
-						return true;
-					} else {
-						console.log("Please enter the GitHub link to your project!");
-						return false;
-					}
-				},
-			},
-			{
-				type: "input",
-				name: "github",
+				name: "username",
 				message: "Enter your GitHub Username (Required)",
 				validate: (nameInput) => {
 					if (nameInput) {
@@ -142,19 +129,16 @@ function init() {
 			},
 		])
 		.then((answers) => {
-			return answers;
+			writeToFile(answers);
 		});
 }
 
 // TODO: Create a function to write README file
-const readME = generateReadME(answers);
-fs.writeFile("./utils/README.md", readME, (err) => {
-	if (err) {
-		console.log(err);
-		return;
-	}
-	console.log("README created!");
-});
+function writeToFile(data) {
+	fs.writeFile("./utils/README.md", generate(data), (err) =>
+		err ? console.log(err) : console.log("ReadME created!")
+	);
+}
 
 // Function call to initialize app
 init();
