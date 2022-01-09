@@ -32,7 +32,7 @@ function generateMarkdown(data) {
   [Contact-Information](#Contact-Information)
   ---
   ## Installation
-  ${data.install}
+  ${data.installation}
   ---
   ## Usage
   ${data.usage}
@@ -41,7 +41,7 @@ function generateMarkdown(data) {
   ${data.contributing}
   ---
   ## Tests
-  ${data.test}
+  ${data.tests}
   ---
   ## License
   [![License](https://img.shields.io/badge/License-${

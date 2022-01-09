@@ -116,7 +116,7 @@ function init() {
 			},
 			{
 				type: "input",
-				name: "email",
+				name: "contact",
 				message: "What is your email address? (Required)",
 				validate: (nameInput) => {
 					if (nameInput) {
@@ -135,7 +135,7 @@ function init() {
 
 // TODO: Create a function to write README file
 function writeToFile(data) {
-	fs.writeFile("./utils/README.md", generate(data), (err) =>
+	fs.writeFile("./utils/README.md", generateReadME(data), (err) =>
 		err ? console.log(err) : console.log("ReadME created!")
 	);
 }
