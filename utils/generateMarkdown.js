@@ -22,7 +22,7 @@ function generateMarkdown(data) {
   
   [Username](#Username)
   
-  [Contact-Information](#Contact-Information)
+  [Questions](#Questions)
   ---
   ## Installation
 
@@ -46,9 +46,9 @@ function generateMarkdown(data) {
   ---
   ## Username
 
-  https://github.com/${data.username}
+  https://www.github.com/${data.username}
   ---
-  ## Contact
+  ## Questions
   
   ${data.contact}
 

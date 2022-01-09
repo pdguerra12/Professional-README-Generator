@@ -20,7 +20,7 @@
   
   [Username](#Username)
   
-  [Contact-Information](#Contact-Information)
+  [Questions](#Questions)
   ---
   ## Installation
 
@@ -44,9 +44,9 @@
   ---
   ## Username
 
-  https://github.com/pdguerra12
+  https://www.github.com/pdguerra12
   ---
-  ## Contact
+  ## Questions
   
   paul.guerra09@gmail.com
 
